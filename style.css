@@ -38,6 +38,10 @@ ul {
     list-style: none;
 }
 
+svg {
+    cursor: pointer;
+}
+
 .card {
     background: white;
     margin: 90px 30px;

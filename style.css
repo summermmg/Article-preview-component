@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --light-grayish-blue: hsl(210, 46%, 95%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --Desaturated-dark-blue: hsl(214, 17%, 51%);
+    --dark-grayish-blue: hsl(217, 19%, 35%);
+    --main-body-font-size: 13px;
+}
+
+body {
+    background: var(--light-grayish-blue);
+    font-size: var(--main-body-font-size);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+}
+
+.attribution { 
+    font-size: 11px;
+    text-align: center; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.attribution a { color: hsl(228, 45%, 44%); }
+
+img {
+    /* Important to control the main-image no larger than 100% of its container */
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+.card {
+    background: white;
+    margin: 90px 30px;
+    border-radius: 15px;
+}
+
+.image-container {
+    height: 210px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.content {
+    padding: 20px 0 0;
+}
+
+.content>h2 {
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    line-height: 1.5;
+    color: var(--dark-grayish-blue);
+}
+
+.content>p {
+    line-height: 1.5;
+    color: var(--grayish-blue);
+    margin-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.author {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+.author.hide {
+    display: none;
+}
+
+.avatar-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar-container img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.avatar-text {
+    margin-left: 10px;
+}
+
+.avatar-text h4 {
+    color: var(--dark-grayish-blue);
+}
+
+.avatar-text p {
+    color: var(--grayish-blue);
+}
+
+.share {
+    align-self: center;
+    background: var(--light-grayish-blue);
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.clicked-share {
+    display: none;
+}
+
+/* Mobile Active */
+
+/* .clicked-share.active */
+.clicked-share.active {
+    display: block;
+    background: var(--dark-grayish-blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-radius: 0 0 15px 15px;
+}
+
+.clicked-share.active .icons,
+.clicked-share.active .icons ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.clicked-share.active .icons>div {
+    display: flex;
+    align-items: center;
+    color: var(--grayish-blue);
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.clicked-share.active .icons, .icons ul li {
+    align-self: center;
+    padding: 12px 8px;
+} 
+
+.clicked-share.active .share {
+    background: var(--Desaturated-dark-blue);    
+}
+
+
+/* Desktop & Tablet */
+
+@media screen and (min-width: 650px) {
+    .card {
+        display: grid;
+        grid-template-columns: 3fr 5fr;
+        max-width: 750px;
+        margin: 100px auto;
+        height: 300px;
+    }
+
+    .image-container {
+        display: flex;
+        border-radius: 15px 0 0 15px;
+        height: auto;
+    }
+
+    .content {
+        background: white;
+        z-index: 200;
+        position: relative;
+        right: 50px;
+    }
+
+    .content p {
+        margin-bottom: 0;
+    }
+
+    .content h2 {
+        font-size: 22px;
+    }
+    
+    .card-bottom  {
+        position: relative;
+    }
+
+    .clicked-share {
+        position: absolute;
+        top: -55px;
+        right: -68px;
+    }
+
+    /* author won't hide when share button clicked */
+    .author.hide {
+        display: flex;        
+    }
+
+    .author.hide .share {
+        background: var(--Desaturated-dark-blue);  
+    }
+
+    .author.hide .share svg path {
+        fill: var(--light-grayish-blue);
+    }
+
+    .clicked-share.active {
+        background: var(--dark-grayish-blue);
+        display: flex;
+        justify-content: space-between;
+        border-radius: 15px;
+        padding: 3px 25px;
+    }
+
+    .clicked-share.active::after {
+        content: '';
+        position: absolute;
+        left: 42%;
+        top: 85%;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid var(--dark-grayish-blue);
+        clear: both;
+    }
+
+    .clicked-share.active .icons, .icons ul li {
+        padding: 5px 10px;
+    } 
+
+    .clicked-share.active .share {
+        display: none;
+    } 
+
+    .clicked-share.active .icons>div {
+        font-size: 12px;
+    }
+}

@@ -154,7 +154,11 @@ svg {
 } 
 
 .clicked-share.active .share {
-    background: var(--Desaturated-dark-blue);    
+    background: var(--Desaturated-dark-blue);        
+}
+
+.clicked-share.active .share svg path {
+    fill: var(--light-grayish-blue);
 }
 
 
